@@ -6,13 +6,23 @@ $loginForm = <<<LOGIN_FORM
     <head>
         <meta charset="UTF-8">
         <title>Example Login Form</title>
+        <link href="style.css" rel="stylesheet">
     </head>
     <body>
-        <div align="center">
-            <form method="POST" action="http://ems.dev:15003/login.php">
-                Username: <input type="text" name="username" size="15" /><br />
-                Password: <input type="password" name="password" size="15" /><br />
-                <p><input type="submit" value="Login" /></p>
+        <div class="container">
+            <form class="form-signin" method="POST" action="http://local.dev/login.php">
+                <h2 class="form-signin-heading">Please sign in</h2>
+                <label for="username" class="sr-only">Username</label>
+                <input type="text" id="username" class="form-control" placeholder="Username" required autofocus name="username" />
+                <label for="password" class="sr-only">Password</label>
+                <input type="password" id="password" class="form-control" placeholder="Password" required name="password" />
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="auth" value="in-memory" checked> In Memory
+                        <input type="radio" name="auth" value="file-based"> File Based
+                    </label>
+                </div>
+                <button class="btn" type="submit" value="Login" />Login</button>
             </form>
         </div>
     </body>
