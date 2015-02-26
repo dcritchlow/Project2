@@ -10,7 +10,7 @@ $loginForm = <<<LOGIN_FORM
     </head>
     <body>
         <div class="container">
-            <form class="form-signin" method="POST" action="http://local.dev/login.php">
+            <form class="form-signin" method="POST" action="http://local.dev/Project1/public/auth.php">
                 <h2 class="form-signin-heading">Please sign in</h2>
                 <label for="username" class="sr-only">Username</label>
                 <input type="text" id="username" class="form-control" placeholder="Username" required autofocus name="username" />
