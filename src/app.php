@@ -12,7 +12,6 @@ require 'Config'.DIRECTORY_SEPARATOR.'dev.php';
 require 'Common'.DIRECTORY_SEPARATOR.'Authentication'.DIRECTORY_SEPARATOR.'AuthInterface.php';
 require 'Common'.DIRECTORY_SEPARATOR.'Authentication'.DIRECTORY_SEPARATOR.'FileBased.php';
 require 'Common'.DIRECTORY_SEPARATOR.'Authentication'.DIRECTORY_SEPARATOR.'InMemory.php';
-require 'Common'.DIRECTORY_SEPARATOR.'Request'.DIRECTORY_SEPARATOR.'RequestInterface.php';
 
 
 // Display the login form.

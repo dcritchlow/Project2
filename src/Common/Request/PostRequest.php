@@ -1,6 +1,6 @@
 <?php
-
-use Common\Request\RequestInterface;
+namespace Common\Request;
+//use \Common\Request\RequestInterface;
 
 class PostRequest implements RequestInterface
 {
