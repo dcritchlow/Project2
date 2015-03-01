@@ -13,4 +13,4 @@ catch (Exception $ex){
     echo $ex->getMessage();
 }
 
-echo $postRequest->getUserName(). " " . $postRequest->getPassword().PHP_EOL;
+//echo $postRequest->getUserName(). " " . $postRequest->getPassword().PHP_EOL;
