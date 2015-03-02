@@ -1,6 +1,6 @@
 <?php
 
-namespace Common\Authentication;
+namespace Common\Authentication\Persistence;
 
 interface AuthInterface
 {

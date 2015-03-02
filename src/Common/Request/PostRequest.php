@@ -1,6 +1,8 @@
 <?php
-namespace Common\PostRequest;
-use Common\Request\RequestInterface;
+namespace Common\Request;
+
+use HttpInvalidParamException;
+use InvalidArgumentException;
 
 class PostRequest implements RequestInterface
 {

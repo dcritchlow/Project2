@@ -1,5 +1,7 @@
 <?php
-use \Common\Request;
+//use Common\Request\PostRequest;
+
+use Common\Request\PostRequest;
 
 echo __NAMESPACE__.PHP_EOL;
 echo __FILE__.PHP_EOL;

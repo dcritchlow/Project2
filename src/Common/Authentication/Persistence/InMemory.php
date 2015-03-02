@@ -1,7 +1,6 @@
 <?php
-use Common\Authentication\AuthInterface;
 
-echo __FILE__.PHP_EOL;
+namespace Common\Authentication\Persistence;
 
 class InMemory implements AuthInterface
 {
