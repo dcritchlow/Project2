@@ -3,6 +3,7 @@
 namespace Common\Authentication;
 
 use Common\Authentication\Persistence\InMemory;
+use Common\Authentication\Persistence\FileBased;
 
 class PersistenceFactory implements FactoryInterface
 {
@@ -15,5 +16,10 @@ class PersistenceFactory implements FactoryInterface
     public function createInMemoryPersistence()
     {
         return new InMemory();
+    }
+
+    public function createFileBasedPersistence()
+    {
+        return new FileBased();
     }
 }

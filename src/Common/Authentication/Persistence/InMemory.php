@@ -31,6 +31,6 @@ class InMemory implements AuthInterface
             return "Not Authorized!";
         }
 
-        return "Welcome!";
+        return "Welcome ". $this->username . "!";
     }
 }

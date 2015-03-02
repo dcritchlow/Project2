@@ -1,9 +1,13 @@
 <?php
-namespace Common\Request;
-use HttpInvalidParamException;
-use InvalidArgumentException;
+namespace Common\Authentication\Request;
 
-class PostRequest implements RequestInterface
+//use \Common\Authentication\Request\RequestInterface;
+//use HttpInvalidParamException;
+//use InvalidArgumentException;
+
+echo __FILE__.PHP_EOL;
+
+class PostRequest
 {
     private $username;
     private $password;
@@ -12,26 +16,26 @@ class PostRequest implements RequestInterface
     public function __construct($postArray)
     {
         if(!isset($postArray['username'])) {
-            throw new InvalidArgumentException(__METHOD__.'('.__LINE__.'): ERROR: no username dependency');
+//            throw new InvalidArgumentException(__METHOD__.'('.__LINE__.'): ERROR: no username dependency');
         }
 
         if(!isset($postArray['password'])) {
-            throw new InvalidArgumentException(__METHOD__.'('.__LINE__.'): ERROR: no password dependency');
+//            throw new InvalidArgumentException(__METHOD__.'('.__LINE__.'): ERROR: no password dependency');
         }
 
         if (!is_string($postArray['username'])) {
-            throw new HttpInvalidParamException(__METHOD__.'('.__LINE__.'): ERROR: username must be a string');
+//            throw new HttpInvalidParamException(__METHOD__.'('.__LINE__.'): ERROR: username must be a string');
         }
 
         if (!is_string($postArray['password'])) {
-            throw new HttpInvalidParamException(__METHOD__.'('.__LINE__.'): ERROR: password must be a string');
+//            throw new HttpInvalidParamException(__METHOD__.'('.__LINE__.'): ERROR: password must be a string');
         }
 
         if (!strlen($postArray['password']) < 8) {
-            throw new HttpInvalidParamException(__METHOD__.'('.__LINE__.'): ERROR: password must be a 8 characters');
+//            throw new HttpInvalidParamException(__METHOD__.'('.__LINE__.'): ERROR: password must be a 8 characters');
         }
         if (!isset($postArray['auth'])){
-            throw new InvalidArgumentException(__METHOD__.'('.__LINE__.'): ERROR: no authentication method');
+//            throw new InvalidArgumentException(__METHOD__.'('.__LINE__.'): ERROR: no authentication method');
         }
 
         $postArray['username'] = htmlentities($postArray['username']);

@@ -4,6 +4,8 @@
 	$sourceDir  = realpath($projectDir.DIRECTORY_SEPARATOR.'src');
 	$configDir  = realpath($sourceDir.DIRECTORY_SEPARATOR.'Config');
 
+xdebug_break();
+
     // Configure/bootstrap application
 	require $configDir.DIRECTORY_SEPARATOR.'bootstrap.php';
 
