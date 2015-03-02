@@ -2,6 +2,7 @@
 
 $config = [
     'application' => [
+        'environment' => 'dev',
         'loglevel' => 1,
         'quiet'    => false,
         'dir'      => [

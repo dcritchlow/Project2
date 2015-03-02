@@ -1,6 +1,5 @@
 <?php
 namespace Common\Request;
-
 use HttpInvalidParamException;
 use InvalidArgumentException;
 
