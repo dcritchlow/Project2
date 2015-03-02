@@ -7,6 +7,7 @@ class PostRequest implements RequestInterface
 {
     private $username;
     private $password;
+    private $authmethod;
 
     public function __construct($postArray)
     {
@@ -29,12 +30,17 @@ class PostRequest implements RequestInterface
         if (!strlen($postArray['password']) < 8) {
             throw new HttpInvalidParamException(__METHOD__.'('.__LINE__.'): ERROR: password must be a 8 characters');
         }
+        if (!isset($postArray['auth'])){
+            throw new InvalidArgumentException(__METHOD__.'('.__LINE__.'): ERROR: no authentication method');
+        }
 
         $postArray['username'] = htmlentities($postArray['username']);
         $postArray['password'] = htmlentities($postArray['password']);
+        $postArray['auth'] = htmlentities($postArray['auth']);
 
         $this->username = $postArray['username'];
         $this->password = $postArray['password'];
+        $this->authmethod = $postArray['auth'];
     }
 
     public function getUserName()
@@ -45,5 +51,10 @@ class PostRequest implements RequestInterface
     public function getPassword()
     {
         return $this->password;
+    }
+
+    public function getAuthMethod()
+    {
+        return $this->authmethod;
     }
 }
