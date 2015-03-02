@@ -1,5 +1,5 @@
 <?php
-echo $sourceDir." src dir".PHP_EOL;
+
 $config = [
     'application' => [
         'loglevel' => 1,
