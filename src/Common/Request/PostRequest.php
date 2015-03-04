@@ -1,13 +1,9 @@
 <?php
-namespace Common\Authentication\Request;
+namespace Common\Request;
 
-//use \Common\Authentication\Request\RequestInterface;
-//use HttpInvalidParamException;
-//use InvalidArgumentException;
+use Common\Exception\LoginException;
 
-echo __FILE__.PHP_EOL;
-
-class PostRequest
+class PostRequest implements RequestInterface
 {
     private $username;
     private $password;
@@ -16,26 +12,29 @@ class PostRequest
     public function __construct($postArray)
     {
         if(!isset($postArray['username'])) {
-//            throw new InvalidArgumentException(__METHOD__.'('.__LINE__.'): ERROR: no username dependency');
+            throw new LoginException('ERROR: no username dependency in '.__METHOD__.' on line '.__LINE__);
         }
 
         if(!isset($postArray['password'])) {
-//            throw new InvalidArgumentException(__METHOD__.'('.__LINE__.'): ERROR: no password dependency');
+            throw new LoginException('ERROR: no password dependency in '.__METHOD__.' on line '.__LINE__);
         }
 
         if (!is_string($postArray['username'])) {
-//            throw new HttpInvalidParamException(__METHOD__.'('.__LINE__.'): ERROR: username must be a string');
+            throw new LoginException('ERROR: username must be a string '.__METHOD__.' on line '.__LINE__);
         }
 
         if (!is_string($postArray['password'])) {
-//            throw new HttpInvalidParamException(__METHOD__.'('.__LINE__.'): ERROR: password must be a string');
+            throw new LoginException('ERROR: password must be a string '.__METHOD__.' on line '.__LINE__);
         }
 
-        if (!strlen($postArray['password']) < 8) {
-//            throw new HttpInvalidParamException(__METHOD__.'('.__LINE__.'): ERROR: password must be a 8 characters');
+        if (strlen($postArray['password']) < 8) {
+            throw new LoginException('ERROR: password must be 8 characters '.__METHOD__.' on line '.__LINE__);
+        }
+        if (strlen($postArray['password']) > 8) {
+            throw new LoginException('ERROR: password must be 8 characters '.__METHOD__.' on line '.__LINE__);
         }
         if (!isset($postArray['auth'])){
-//            throw new InvalidArgumentException(__METHOD__.'('.__LINE__.'): ERROR: no authentication method');
+            throw new LoginException('ERROR: authentication method was not chosen '.__METHOD__.' on line '.__LINE__);
         }
 
         $postArray['username'] = htmlentities($postArray['username']);

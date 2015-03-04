@@ -3,7 +3,7 @@
 Code a simple PHP web application login form. The login form page should only take a username and password as user input. No user registration required or desired for this application. Below is a simple list of more requirements:
 
 * No JavaScript (5)
-8 No PHP frameworks (5)
+* No PHP frameworks (5)
 * No 3rd party plugins or libraries (5)
 * No database of any type at this time (10)
 * Do not embed PHP in HTML if you desire (10)

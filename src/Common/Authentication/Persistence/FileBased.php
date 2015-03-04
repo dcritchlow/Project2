@@ -2,8 +2,6 @@
 
 namespace Common\Authentication\Persistence;
 
-//echo __FILE__.PHP_EOL;
-
 class FileBased implements AuthInterface
 {
 

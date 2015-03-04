@@ -115,6 +115,10 @@ label {
     padding: 10px;
 }
 
+span {
+    color: #808080;
+}
+
 @media (min-width: 768px) {
     .container {
         width: 750px;

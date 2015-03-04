@@ -2,3 +2,4 @@ Options -Indexes
 IndexIgnore *
 order allow,deny
 deny from all
+#ErrorDocument 404 /public/error.html

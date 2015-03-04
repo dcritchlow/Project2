@@ -1,6 +1,6 @@
 <?php
 
-namespace Common\Authentication\Request;
+namespace Common\Request;
 
 interface RequestInterface
 {
