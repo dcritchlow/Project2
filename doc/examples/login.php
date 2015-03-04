@@ -1,5 +1,6 @@
 <?php
-	class PostRequest
+
+class PostRequestExample
 	{
 		private $username;
 		private $password;

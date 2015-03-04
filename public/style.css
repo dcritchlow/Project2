@@ -111,6 +111,14 @@ label {
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
 
+.radio {
+    padding: 10px;
+}
+
+span {
+    color: #808080;
+}
+
 @media (min-width: 768px) {
     .container {
         width: 750px;

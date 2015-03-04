@@ -1,4 +1,7 @@
 <?php
+namespace Views;
+
+$server = $_SERVER["SERVER_NAME"];
 
 $loginForm = <<<LOGIN_FORM
 <!DOCTYPE html>
@@ -6,11 +9,11 @@ $loginForm = <<<LOGIN_FORM
     <head>
         <meta charset="UTF-8">
         <title>Example Login Form</title>
-        <link href="style.css" rel="stylesheet">
+        <link href="http://$server/Project1/public/style.css" rel="stylesheet">
     </head>
     <body>
         <div class="container">
-            <form class="form-signin" method="POST" action="http://local.dev/login.php">
+            <form class="form-signin" method="POST" action="auth">
                 <h2 class="form-signin-heading">Please sign in</h2>
                 <label for="username" class="sr-only">Username</label>
                 <input type="text" id="username" class="form-control" placeholder="Username" required autofocus name="username" />

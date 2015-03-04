@@ -1,3 +1,3 @@
 <?php
 
-echo __FILE__.PHP_EOL;
+echo '<span>production</span>';
