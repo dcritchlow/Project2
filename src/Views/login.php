@@ -1,13 +1,15 @@
 <?php
 namespace Views;
 
+$server = $_SERVER["SERVER_NAME"];
+
 $loginForm = <<<LOGIN_FORM
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>Example Login Form</title>
-        <link href="http://local.dev/Project1/public/style.css" rel="stylesheet">
+        <link href="http://$server/Project1/public/style.css" rel="stylesheet">
     </head>
     <body>
         <div class="container">
