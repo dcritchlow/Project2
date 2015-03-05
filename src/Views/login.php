@@ -9,7 +9,7 @@ $loginForm = <<<LOGIN_FORM
     <head>
         <meta charset="UTF-8">
         <title>Example Login Form</title>
-        <link href="http://$server/Project1/public/style.css" rel="stylesheet">
+        <link href="http://$server/public/style.css" rel="stylesheet">
     </head>
     <body>
         <div class="container">
