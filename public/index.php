@@ -16,7 +16,7 @@
         $url_array = parse_url($url);
     }
 
-    if($url_array['path'] == '/Project1/public/auth')
+    if(preg_match('/auth/', $url_array['path']))
     {
         try
         {
