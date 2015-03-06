@@ -6,4 +6,4 @@ php:
 install:
   - composer install
 script:
-  - php codecept run
+  - php ./vendor/bin/codecept run
