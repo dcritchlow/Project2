@@ -1,0 +1,21 @@
+{
+    "name": "dcritchlow/project1",
+    "description": "Authentication project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Darin Critchlow",
+            "email": "darincritchlow@gmail.com"
+        }
+    ],
+    "require-dev": {
+    },
+    "require": {
+        "codeception/codeception": "*"
+    },
+    "autoload": {
+      "psr-0": {
+        "": "src/"
+      }
+    }
+}
