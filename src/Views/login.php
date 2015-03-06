@@ -25,7 +25,7 @@ $loginForm = <<<LOGIN_FORM
                         <input type="radio" name="auth" value="file-based"> File Based
                     </label>
                 </div>
-                <button class="btn" type="submit" value="Login" />Login</button>
+                <button class="btn" name="Login" type="submit" value="Login" />Login</button>
             </form>
         </div>
     </body>
