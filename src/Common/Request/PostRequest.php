@@ -19,6 +19,10 @@ class PostRequest implements RequestInterface
             throw new LoginException('ERROR: no password dependency in '.__METHOD__.' on line '.__LINE__);
         }
 
+        if (!isset($postArray['auth'])) {
+            throw new LoginException('ERROR: authentication method was not chosen '.__METHOD__.' on line '.__LINE__);
+        }
+
         if (!is_string($postArray['username'])) {
             throw new LoginException('ERROR: username must be a string '.__METHOD__.' on line '.__LINE__);
         }
@@ -26,14 +30,17 @@ class PostRequest implements RequestInterface
         if (!is_string($postArray['password'])) {
             throw new LoginException('ERROR: password must be a string '.__METHOD__.' on line '.__LINE__);
         }
-
+        if(strlen($postArray['username']) < 1) {
+            throw new LoginException('ERROR: username empty '.__METHOD__.' on line '.__LINE__);
+        }
         if (strlen($postArray['password']) < 8) {
             throw new LoginException('ERROR: password must be 8 characters '.__METHOD__.' on line '.__LINE__);
         }
         if (strlen($postArray['password']) > 8) {
             throw new LoginException('ERROR: password must be 8 characters '.__METHOD__.' on line '.__LINE__);
         }
-        if (!isset($postArray['auth'])){
+
+        if (strlen($postArray['auth']) < 1) {
             throw new LoginException('ERROR: authentication method was not chosen '.__METHOD__.' on line '.__LINE__);
         }
 
