@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/dcritchlow/Project1.svg)](https://travis-ci.org/dcritchlow/Project1)
 # Project1
 
 Code a simple PHP web application login form. The login form page should only take a username and password as user input. No user registration required or desired for this application. Below is a simple list of more requirements:
