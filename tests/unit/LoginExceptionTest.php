@@ -8,7 +8,7 @@ class LoginExceptionTest extends \Codeception\TestCase\Test
 
     public function testLoginExceptionIsThrown()
     {
-        $this->specify('', function() {
+        $this->specify('Throw LoginException', function() {
             throw new LoginException('I am a test');
         }, ['throws' => 'Common\Exception\LoginException']);
     }
