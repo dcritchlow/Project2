@@ -11,4 +11,3 @@ Extend the PHP code from Project #1 to include authenticating to a MySQL databas
 - This is an individual project, no collaborations with anyone. It must be your own work
 - EXTRA CREDIT: Extend the PHP code from Project 1/2 to include authenticating to a SQLite database. (20)
 - 30 points possible
->>>>>>> 235afc8c240863787bb80884563ab93a58c6cf65
