@@ -6,8 +6,6 @@ class InMemoryTest extends \Codeception\TestCase\Test
 {
     use Codeception\Specify;
 
-    protected $auth;
-
     public function testNewInMemoryPersistenceIsCreated()
     {
         $this->specify('Create new InMemory Persistence', function() {
@@ -19,7 +17,7 @@ class InMemoryTest extends \Codeception\TestCase\Test
     {
         $this->specify('Authenticate user joe', function() {
             $auth = new InMemory();
-            expect("Welcome joe!", $auth->authenticate('joe', '1234pass'));
+            verify_that($auth->authenticate('joe', '1234pass'));
         });
     }
 
@@ -27,16 +25,16 @@ class InMemoryTest extends \Codeception\TestCase\Test
     {
         $this->specify('Unauthorized user ', function() {
             $auth = new InMemory();
-            expect("Not Authorized", $auth->authenticate('dave', '1234pass'));
-        });
+            $auth->authenticate('dave', '1234pass');
+        }, ['throws' => 'Common\Exception\LoginException']);
     }
 
     public function testNewInMemoryAuthenticationBadPassword()
     {
         $this->specify('Bad password with user joe', function() {
             $auth = new InMemory();
-            expect("Not Authorized", $auth->authenticate('joe', '1234pass1'));
-        });
+            $auth->authenticate('joe', '1234pass1');
+        }, ['throws' => 'Common\Exception\LoginException']);
     }
 
 }
