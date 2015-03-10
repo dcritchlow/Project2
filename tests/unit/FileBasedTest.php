@@ -11,7 +11,7 @@ class FileBasedTest extends \Codeception\TestCase\Test
     public function testNewFileBasedPersistenceIsCreated()
     {
         $this->specify('Create new FileBased Persistence', function() {
-            expect_that(new FileBased());
+            verify_that(new FileBased());
         });
     }
 
@@ -19,7 +19,7 @@ class FileBasedTest extends \Codeception\TestCase\Test
     {
         $this->specify('Authenticate user joe', function() {
             $auth = new FileBased();
-            expect("Welcome joe!", $auth->authenticate('joe', '1234pass'));
+            verify_that($auth->authenticate('joe', '1234pass'));
         });
     }
 
@@ -27,16 +27,16 @@ class FileBasedTest extends \Codeception\TestCase\Test
     {
         $this->specify('Unauthorized user ', function() {
             $auth = new FileBased();
-            expect("Not Authorized", $auth->authenticate('dave', '1234pass'));
-        });
+            $auth->authenticate('dave', '1234pass');
+        }, ['throws' => 'Common\Exception\LoginException']);
     }
 
     public function testNewFileBasedAuthenticationBadPassword()
     {
         $this->specify('Bad password with user joe', function() {
             $auth = new FileBased();
-            expect("Not Authorized", $auth->authenticate('joe', '1234pass1'));
-        });
+            $auth->authenticate('joe', '1234pass1');
+        }, ['throws' => 'Common\Exception\LoginException']);
     }
 
 }

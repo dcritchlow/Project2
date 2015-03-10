@@ -11,4 +11,4 @@ modules:
         - AcceptanceHelper
     config:
         PhpBrowser:
-            url: 'http://proj1.dev'
+            url: 'http://proj2.dev'
