@@ -22,6 +22,9 @@ $config = [
             'Common\\Authentication\\Persistence\\MySQL' =>
                 $sourceDir.DIRECTORY_SEPARATOR.'Common'.DIRECTORY_SEPARATOR.
                 'Authentication'.DIRECTORY_SEPARATOR.'Persistence'.DIRECTORY_SEPARATOR.'MySQL.php',
+            'Common\\Authentication\\Persistence\\Sqlite' =>
+                $sourceDir.DIRECTORY_SEPARATOR.'Common'.DIRECTORY_SEPARATOR.
+                'Authentication'.DIRECTORY_SEPARATOR.'Persistence'.DIRECTORY_SEPARATOR.'Sqlite.php',
             'Common\\Authentication\\FactoryInterface' =>
                 $sourceDir.DIRECTORY_SEPARATOR.'Common'.DIRECTORY_SEPARATOR.
                 'Authentication'.DIRECTORY_SEPARATOR.'FactoryInterface.php',

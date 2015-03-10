@@ -5,6 +5,7 @@ namespace Common\Authentication;
 use Common\Authentication\Persistence\InMemory;
 use Common\Authentication\Persistence\FileBased;
 use Common\Authentication\Persistence\MySQL;
+use Common\Authentication\Persistence\Sqlite;
 
 class PersistenceFactory implements FactoryInterface
 {
@@ -27,5 +28,10 @@ class PersistenceFactory implements FactoryInterface
     public function createMySQLPersistence($db)
     {
         return new MySQL($db);
+    }
+
+    public function createSqlitePersistence($db)
+    {
+        return new Sqlite($db);
     }
 }
