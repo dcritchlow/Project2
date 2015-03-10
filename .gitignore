@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .DS_Store
 .idea
 composer.phar
@@ -13,3 +14,7 @@ composer.lock
 # composer.lock
 
 tests/_output/*
+=======
+/cache/
+/config/development/
+>>>>>>> 235afc8c240863787bb80884563ab93a58c6cf65
