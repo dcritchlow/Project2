@@ -20,11 +20,10 @@ $loginForm = <<<LOGIN_FORM
                 <label for="password" class="sr-only">Password</label>
                 <input type="password" id="password" class="form-control" placeholder="Password" required name="password" />
                 <div class="radio">
-                    <label>
                         <input type="radio" name="auth" value="in-memory" checked> In Memory
                         <input type="radio" name="auth" value="file-based"> File Based
                         <input type="radio" name="auth" value="mysql"> MySQL
-                    </label>
+                        <input type="radio" name="auth" value="sqlite"> SQLite
                 </div>
                 <button class="btn" name="Login" type="submit" value="Login" />Login</button>
             </form>

@@ -22,6 +22,9 @@ try
     if($authmethod == 'mysql'){
         $authenticate = $persistence->createMySQLPersistence($db);
     }
+    if($authmethod == 'sqlite'){
+        $authenticate = $persistence->createSqlitePersistence($dbSqlite);
+    }
 
 
     $response = $authenticate->authenticate($postRequest->getUserName(), $postRequest->getPassword());
