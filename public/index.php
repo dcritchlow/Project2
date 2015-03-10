@@ -25,7 +25,8 @@
         }
         catch(LoginException $ex)
         {
-            echo $ex->getMessage();
+            echo '<div class="error">'.$ex->getMessage().'</div>';
+            require $sourceDir.DIRECTORY_SEPARATOR.'app.php';
         }
         return;
     }

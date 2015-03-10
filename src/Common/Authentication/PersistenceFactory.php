@@ -4,6 +4,7 @@ namespace Common\Authentication;
 
 use Common\Authentication\Persistence\InMemory;
 use Common\Authentication\Persistence\FileBased;
+use Common\Authentication\Persistence\MySQL;
 
 class PersistenceFactory implements FactoryInterface
 {
@@ -21,5 +22,10 @@ class PersistenceFactory implements FactoryInterface
     public function createFileBasedPersistence()
     {
         return new FileBased();
+    }
+
+    public function createMySQLPersistence($db)
+    {
+        return new MySQL($db);
     }
 }

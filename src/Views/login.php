@@ -23,6 +23,7 @@ $loginForm = <<<LOGIN_FORM
                     <label>
                         <input type="radio" name="auth" value="in-memory" checked> In Memory
                         <input type="radio" name="auth" value="file-based"> File Based
+                        <input type="radio" name="auth" value="mysql"> MySQL
                     </label>
                 </div>
                 <button class="btn" name="Login" type="submit" value="Login" />Login</button>

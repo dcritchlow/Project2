@@ -119,6 +119,12 @@ span {
     color: #808080;
 }
 
+.error {
+    text-align: center;
+    color: red;
+    font-size: 1.2em;
+}
+
 @media (min-width: 768px) {
     .container {
         width: 750px;

@@ -2,6 +2,8 @@
 
 namespace Common\Authentication\Persistence;
 
+use Common\Exception\LoginException;
+
 class FileBased implements AuthInterface
 {
 
@@ -29,11 +31,11 @@ class FileBased implements AuthInterface
         $user = explode(',',$userFile);
 
         if ($this->username !== $user[0]) {
-            return "Not Authorized!";
+            throw new LoginException('ERROR: Incorrect username');
         }
 
         if ($this->password !== $user[1]) {
-            return "Not Authorized!";
+            throw new LoginException('ERROR: Incorrect password');
         }
 
         return "Welcome ". $this->username . "!";

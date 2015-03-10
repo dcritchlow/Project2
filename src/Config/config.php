@@ -19,6 +19,9 @@ $config = [
             'Common\\Authentication\\Persistence\\FileBased' =>
                 $sourceDir.DIRECTORY_SEPARATOR.'Common'.DIRECTORY_SEPARATOR.
                 'Authentication'.DIRECTORY_SEPARATOR.'Persistence'.DIRECTORY_SEPARATOR.'FileBased.php',
+            'Common\\Authentication\\Persistence\\MySQL' =>
+                $sourceDir.DIRECTORY_SEPARATOR.'Common'.DIRECTORY_SEPARATOR.
+                'Authentication'.DIRECTORY_SEPARATOR.'Persistence'.DIRECTORY_SEPARATOR.'MySQL.php',
             'Common\\Authentication\\FactoryInterface' =>
                 $sourceDir.DIRECTORY_SEPARATOR.'Common'.DIRECTORY_SEPARATOR.
                 'Authentication'.DIRECTORY_SEPARATOR.'FactoryInterface.php',

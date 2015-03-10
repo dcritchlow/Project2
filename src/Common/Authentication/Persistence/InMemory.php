@@ -2,6 +2,8 @@
 
 namespace Common\Authentication\Persistence;
 
+use Common\Exception\LoginException;
+
 class InMemory implements AuthInterface
 {
     protected $username;
@@ -24,11 +26,11 @@ class InMemory implements AuthInterface
         }
 
         if ($this->username !== 'joe') {
-            return "Not Authorized!";
+            throw new LoginException('ERROR: Incorrect username');
         }
 
         if ($this->password !== '1234pass') {
-            return "Not Authorized!";
+            throw new LoginException('ERROR: Incorrect password');
         }
 
         return "Welcome ". $this->username . "!";

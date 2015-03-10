@@ -19,6 +19,9 @@ try
     if($authmethod == 'file-based'){
         $authenticate = $persistence->createFileBasedPersistence();
     }
+    if($authmethod == 'mysql'){
+        $authenticate = $persistence->createMySQLPersistence($db);
+    }
 
 
     $response = $authenticate->authenticate($postRequest->getUserName(), $postRequest->getPassword());
