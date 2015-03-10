@@ -12,7 +12,7 @@ function say {
   printf "\n--------------------------------------------------------\n"
 }
 
-db='user'
+db='testdb'
 
 # Install Apache
 say "Installing Apache and setting it up."
