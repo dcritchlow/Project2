@@ -1,12 +1,46 @@
 <?php
+/**
+ * PhpStorm
+ *
+ * PHP version 5
+ *
+ * @category  PHP
+ * @package   autoloader.php_php
+ * @author    stringhamdb <stringhamdb@familysearch.org>
+ * @copyright 2014 (c) Intellectual Reserve, Inc.
+ * @license   Trademarked by Intellectual Reserve
+ * @link      http://www.lds.org
+ * @version   $Revision$
+ *
+ * $LastChangedDate$
+ * $LastChangedBy$
+ */
 
+/**
+ * Class AutoLoader
+ *
+ * <?php
+ *
+ * $loader = new \AutoLoader();
+ * $loader->addNamespace('Foo\Bar', '/path/to/packages/foo-bar/src);
+ * $loader->register();
+ *
+ * @category  PHP
+ * @author    stringhamdb <stringhamdb@familysearch.org>
+ * @copyright 2014 © Intellectual Reserve, Inc.
+ * @license   Trademarked by Intellectual Reserve, Inc.
+ * @version   Release: 0.1
+ * @link      https:/ems.ldschurch.org
+ */
 class Autoloader
 {
+
     /**
      * @var array $classes Key = Class name and Value = class directory.
      * @access
      */
     protected $classes = [];
+
     /**
      * Function __constructor
      *
@@ -16,6 +50,7 @@ class Autoloader
     {
         $this->classes = $defaultClasses;
     }
+
     /**
      * Function addClass Adds a class to the class list.
      *
@@ -28,6 +63,7 @@ class Autoloader
     {
         $this->classes[$className] = $classDir;
     }
+
     /**
      * Function loadClass
      *
@@ -42,6 +78,7 @@ class Autoloader
             require $this->classes[$className];
         }
     }
+
     /**
      * Function register Register loader method with SPL autoloader queue.
      *
@@ -51,6 +88,7 @@ class Autoloader
     {
         spl_autoload_register([$this, 'loadClass']);
     }
+
     /**
      * Function unregister Unregister the loader method with SPL autoloader queue.
      *
