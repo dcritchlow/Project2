@@ -1,7 +1,11 @@
 <?php
 namespace Views;
 
-$welcome_art = <<<WELCOME_ART
+class Welcome extends View
+{
+    public function __construct()
+    {
+        $this->content = <<<WELCOME_ART
 <pre>
 
 ============================================================================================================
@@ -41,5 +45,5 @@ $welcome_art = <<<WELCOME_ART
 </pre>
 
 WELCOME_ART;
-
-echo $welcome_art;
+    }
+}

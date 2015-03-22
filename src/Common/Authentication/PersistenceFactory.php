@@ -2,12 +2,7 @@
 
 namespace Common\Authentication;
 
-use Common\Authentication\Persistence\InMemory;
-use Common\Authentication\Persistence\FileBased;
-use Common\Authentication\Persistence\MySQL;
-use Common\Authentication\Persistence\Sqlite;
-
-class PersistenceFactory implements FactoryInterface
+class PersistenceFactory implements IFactory
 {
 
     public function create()
@@ -25,13 +20,13 @@ class PersistenceFactory implements FactoryInterface
         return new FileBased();
     }
 
-    public function createMySQLPersistence($db)
+    public function createMySQLPersistence($config)
     {
-        return new MySQL($db);
+        return new MySQL($config);
     }
 
-    public function createSqlitePersistence($db)
+    public function createSqlitePersistence($config)
     {
-        return new Sqlite($db);
+        return new Sqlite($config);
     }
 }
