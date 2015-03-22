@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.org/dcritchlow/Project2.svg)](https://travis-ci.org/dcritchlow/Project2)
 # Project 2
 
 Extend the PHP code from Project #1 to include authenticating to a MySQL database. Below is a simple list of more requirements:
