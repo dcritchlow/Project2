@@ -7,7 +7,7 @@ $controllersDir = $projectDir . '/src/Controllers';
 $configDir = $projectDir . '/src/Config';
 $httpDir = $projectDir . '/src/Common/Http';
 $routerDir = $projectDir . '/src/Common/Routers';
-$exceptionDir = $projectDir . '/src/Common/Exception';
+$exceptionDir = $projectDir . '/src/Common/Exceptions';
 $srcDir = $projectDir . '/src';
 $viewsDir = $projectDir . '/src/Views';
 
@@ -26,6 +26,7 @@ $config = [
             'Common\\Http\\PostRequest'                     => $httpDir . '/PostRequest.php',
             'Common\\Routers\\IRouter'                      => $routerDir . '/IRouter.php',
             'Common\\Routers\\SimpleRouter'                 => $routerDir . '/SimpleRouter.php',
+            'Common\\Exceptions\\LoginException'            => $exceptionDir . '/LoginException.php',
             'Controllers\\AuthController'                   => $controllersDir . '/AuthController.php',
             'Controllers\\Controller'                       => $controllersDir . '/Controller.php',
             'Controllers\\MainController'                   => $controllersDir . '/MainController.php',
@@ -33,6 +34,7 @@ $config = [
             'Views\\NotAuthorized'                          => $viewsDir . '/NotAuthorized.php',
             'Views\\LoginForm'                              => $viewsDir . '/LoginForm.php',
             'Views\\View'                                   => $viewsDir . '/View.php',
+            'Views\\Error'                                  => $viewsDir . '/Error.php',
         ],
         'dir'          => [
             'authentication' => $authDir,

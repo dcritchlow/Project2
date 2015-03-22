@@ -12,6 +12,8 @@
 
 namespace Controllers;
 use Common\Authentication\PersistenceFactory;
+use Common\Exceptions\LoginException;
+use Views\Error;
 
 
 /**
@@ -50,8 +52,15 @@ class AuthController extends Controller
 //            $authenticate = $persistence->createMySQLPersistence();
 //        }
 
-        $view = $authenticate->authenticate($postData->username, $postData->password);
-        $view->show();
+        try{
+            $view = $authenticate->authenticate($postData->username, $postData->password);
+            $view->show();
+        }
+        catch(LoginException $ex){
+            $view = new Error($ex->getMessage());
+            $view->show();
+        }
+
 
     }
 }
