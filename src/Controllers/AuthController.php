@@ -34,17 +34,17 @@ class AuthController extends Controller
 
         if ($postData->auth == 'in-memory')
         {
-            $authenticate = $persistence->createInMemoryPersistence();
+            $auth = $persistence->createInMemoryPersistence();
         }
 
         if ($postData->auth == 'file-based')
         {
-            $authenticate = $persistence->createFileBasedPersistence();
+            $auth = $persistence->createFileBasedPersistence();
         }
 
         if ($postData->auth == 'sqlite')
         {
-            $authenticate = $persistence->createSqlitePersistence();
+            $auth = $persistence->createSqlitePersistence();
         }
 
 //        if ($postData->auth == 'mysql')
@@ -53,7 +53,7 @@ class AuthController extends Controller
 //        }
 
         try{
-            $view = $authenticate->authenticate($postData->username, $postData->password);
+            $view = $auth->authenticate($postData->username, $postData->password);
             $view->show();
         }
         catch(LoginException $ex){
