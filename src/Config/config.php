@@ -53,7 +53,12 @@ $config = [
         ],
         'db'    => [
             'sqlite'    =>  $srcDir.'/test.db',
-            'mysql'     =>  '"mysql:host=localhost;dbname=testdb;charset=utf8", "root", ""',
+            'mysql'     =>  [
+                'host'      =>  'localhost',
+                'dbname'    =>  'testdb',
+                'user'      =>  'root',
+                'password'  =>  ''
+            ],
             'errorLevel'=>  'PDO::ERRMODE_EXCEPTION'
         ]
     ]

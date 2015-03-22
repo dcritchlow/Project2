@@ -2,7 +2,7 @@
 /**
  * File name: Controller.php
  *
- * Project: Project1
+ * Project: Project2
  *
  * PHP version 5
  *

@@ -3,15 +3,33 @@
 namespace Common\Authentication;
 
 use PDO;
+use PDOException;
+use Views\Welcome;
+use Common\Exceptions\LoginException;
 
 class MySQL
 {
+    protected $config;
     protected $db;
     protected $username;
     protected $password;
-    public function __construct($db, $username = '', $password = '')
+    public function __construct($config=[], $username = '', $password = '')
     {
-        $this->db = $db;
+        $this->config = $config;
+
+        if(empty($this->config))
+        {
+            throw new \InvalidArgumentException(
+                __METHOD__.': $config cannot be empty'
+            );
+        }
+
+        $host = $config['app']['db']['mysql']['host'];
+        $dbname = $config['app']['db']['mysql']['dbname'];
+        $user = $config['app']['db']['mysql']['user'];
+        $password = $config['app']['db']['mysql']['password'];
+
+        $this->db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", "$user", "$password");
         $this->username = $username;
         $this->password = $password;
     }
@@ -19,6 +37,11 @@ class MySQL
     {
         try
         {
+            $this->db->setAttribute(
+                PDO::ATTR_ERRMODE,
+                $this->config['app']['db']['errorLevel']
+            );
+
             $stmt = $this->db->prepare('SELECT name, password FROM user WHERE name = :name');
             $stmt->bindParam(':name', $username, PDO::PARAM_STR);
             $stmt->execute();
@@ -31,9 +54,9 @@ class MySQL
             {
                 throw new LoginException('ERROR: Incorrect password');
             }
-            return "Welcome ".$username."!";
+            return new Welcome();
         }
-        catch(\PDOException $ex)
+        catch(PDOException $ex)
         {
             echo ' Error was caught '.$ex->getMessage();
         }

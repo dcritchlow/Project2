@@ -20,15 +20,13 @@ class PersistenceFactory implements IFactory
         return new FileBased();
     }
 
-    public function createMySQLPersistence($dbMySQL)
+    public function createMySQLPersistence($config)
     {
-        return new MySQL($dbMySQL);
+        return new MySQL($config);
     }
 
     public function createSqlitePersistence($config)
     {
-//        $db = $config['app']['db']['sqlite'];
-//        echo $db;
         return new Sqlite($config);
     }
 }

@@ -2,7 +2,7 @@
 /**
  * File name: AuthController.php
  *
- * Project: Project1
+ * Project: Project2
  *
  * PHP version 5
  *
@@ -47,10 +47,10 @@ class AuthController extends Controller
             $auth = $persistence->createSqlitePersistence($this->config);
         }
 
-//        if ($postData->auth == 'mysql')
-//        {
-//            $authenticate = $persistence->createMySQLPersistence();
-//        }
+        if ($postData->auth == 'mysql')
+        {
+            $auth = $persistence->createMySQLPersistence($this->config);
+        }
 
         try{
             $view = $auth->authenticate($postData->username, $postData->password);
