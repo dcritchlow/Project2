@@ -16,7 +16,6 @@ class Sqlite implements IAuthentication
 
     public function __construct($username='', $password='')
     {
-        $srcDir = realpath(dirname(__FILE__) . '/');
         $this->db = new PDO('sqlite:test.db');
         $this->username = $username;
         $this->password = $password;
