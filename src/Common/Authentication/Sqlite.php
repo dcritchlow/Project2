@@ -9,14 +9,22 @@ use Common\Exceptions\LoginException;
 
 class Sqlite implements IAuthentication
 {
+    protected $config;
     protected $db;
     protected $username;
     protected $password;
-    protected $srcDir;
 
-    public function __construct($username='', $password='')
+    public function __construct($config=[], $username='', $password='')
     {
-        $this->db = new PDO('sqlite:test.db');
+        $this->config = $config;
+
+        if(empty($this->config))
+        {
+            throw new \InvalidArgumentException(
+                __METHOD__.': $config cannot be empty'
+            );
+        }
+        $this->db = new PDO('sqlite:'.$this->config['app']['db']['sqlite']);
         $this->username = $username;
         $this->password = $password;
     }
@@ -25,8 +33,10 @@ class Sqlite implements IAuthentication
     {
         try
         {
-
-            $this->db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+            $this->db->setAttribute(
+                PDO::ATTR_ERRMODE,
+                $this->config['app']['db']['errorLevel']
+            );
 
             $stmt = $this->db->prepare('SELECT name, password FROM user WHERE name = :name');
             $stmt->bindParam(':name', $username, PDO::PARAM_STR);

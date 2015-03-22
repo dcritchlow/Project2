@@ -10,6 +10,6 @@ $request = new \Common\Http\SimpleRequest($_SERVER);
 /**
  * @var \Common\Routers\SimpleRouter()
  */
-$router = new \Common\Routers\SimpleRouter($config['app']['uri-mappings']);
+$router = new \Common\Routers\SimpleRouter($config);
 
 $router->handle($request);

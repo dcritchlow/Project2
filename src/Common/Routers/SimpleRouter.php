@@ -25,19 +25,22 @@ class SimpleRouter implements IRouter
      * @access protected
      */
     protected $uriMappings;
+    protected $config;
 
     /**
      * @param array $newUriMappings Is an associative array holding URI mappings
      */
-    public function __construct($newUriMappings = [])
+    public function __construct($config = [])
     {
-        if (empty($newUriMappings)) {
+        $this->config = $config;
+
+        if (empty($this->config['app']['uri-mappings'])) {
             throw new \InvalidArgumentException(
                 __METHOD__.': $uriMappings cannot be empty'
             );
         }
 
-        $this->uriMappings = $newUriMappings;
+        $this->uriMappings = $this->config['app']['uri-mappings'];
     }
 
     /**
@@ -62,6 +65,8 @@ class SimpleRouter implements IRouter
          * @var \Controllers\Controller $controller
          */
         $controller = new $this->uriMappings[$uri];
+
+        $controller->setConfiguration($this->config);
 
         $controller->setRequest($request);
 

@@ -22,6 +22,7 @@ abstract class Controller
      * @access protected
      */
     protected $request;
+    protected $config;
 
     /**
      * Function execute - Executes the controllers main action
@@ -49,5 +50,10 @@ abstract class Controller
         }
 
         $this->request = $request;
+    }
+
+    public function setConfiguration($config=[])
+    {
+        $this->config = $config;
     }
 }

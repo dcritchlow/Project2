@@ -44,7 +44,7 @@ class AuthController extends Controller
 
         if ($postData->auth == 'sqlite')
         {
-            $auth = $persistence->createSqlitePersistence();
+            $auth = $persistence->createSqlitePersistence($this->config);
         }
 
 //        if ($postData->auth == 'mysql')
