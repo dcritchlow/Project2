@@ -39,7 +39,7 @@ class AuthController extends Controller
 
         if ($postData->auth == 'file-based')
         {
-            $auth = $persistence->createFileBasedPersistence();
+            $auth = $persistence->createFileBasedPersistence($this->config);
         }
 
         if ($postData->auth == 'sqlite')

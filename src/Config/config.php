@@ -21,6 +21,7 @@ $config = [
             'Common\\Authentication\\InMemory'              => $authDir         . '/InMemory.php',
             'Common\\Authentication\\Sqlite'                => $authDir         . '/Sqlite.php',
             'Common\\Authentication\\MySQL'                 => $authDir         . '/MySQL.php',
+            'Common\\Authentication\\User'                  => $authDir         . '/User.php',
             'Common\\Http\\IRequest'                        => $httpDir         . '/IRequest.php',
             'Common\\Http\\SimpleRequest'                   => $httpDir         . '/SimpleRequest.php',
             'Common\\Http\\PostRequest'                     => $httpDir         . '/PostRequest.php',
@@ -51,6 +52,7 @@ $config = [
             '/auth' => 'Controllers\\AuthController',
             '/'     => 'Controllers\\MainController'
         ],
+        'userFile'  =>  $srcDir.'/user.txt',
         'db'    => [
             'sqlite'    =>  $srcDir.'/test.db',
             'mysql'     =>  [

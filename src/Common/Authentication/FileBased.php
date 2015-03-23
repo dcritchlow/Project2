@@ -2,6 +2,7 @@
 
 namespace Common\Authentication;
 
+use Views\Error;
 use Views\NotAuthorized;
 use Views\Welcome;
 
@@ -11,8 +12,17 @@ class FileBased implements IAuthentication
     protected $username;
     protected $password;
 
-    public function __construct($username = '', $password = '')
+    public function __construct($config=[], $username = '', $password = '')
     {
+        $this->config = $config;
+
+        if(empty($this->config))
+        {
+            throw new \InvalidArgumentException(
+                __METHOD__.': $config cannot be empty'
+            );
+        }
+
         $this->username = $username;
         $this->password = $password;
     }
@@ -27,18 +37,20 @@ class FileBased implements IAuthentication
             $this->password = $password;
         }
 
-        $file = realpath(dirname(__FILE__).DIRECTORY_SEPARATOR.'../../'.DIRECTORY_SEPARATOR.'user.txt');
-        $userFile = file_get_contents($file);
-        $user = explode(',',$userFile);
+        $file = $this->config['app']['userFile'];
 
-        if ($this->username !== $user[0]) {
-            return new NotAuthorized();
+        $users = file($file);
+
+        foreach($users as $value)
+        {
+            $line = explode(',', trim($value));
+            $user = new User($line[0], $line[1]);
+
+            if ($this->username === $user->getUserName() && $this->password === $user->getPassword())
+            {
+                return new Welcome();
+            }
         }
-
-        if ($this->password !== $user[1]) {
-            return new NotAuthorized();
-        }
-
-        return new Welcome();
+        return new NotAuthorized();
     }
 }
