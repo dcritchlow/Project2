@@ -26,14 +26,19 @@ class InMemory implements IAuthentication
             $this->password = $password;
         }
 
-        if ($this->username !== 'joe') {
-            return new NotAuthorized();
+        $users = [
+            new User('joe', '1234pass'),
+            new User('tyler', '123456'),
+            new User('brody','654321')
+        ];
+
+        foreach($users as $user)
+        {
+            if ($this->username === $user->getUserName() && $this->password === $user->getPassword()) {
+                return new Welcome();
+            }
         }
 
-        if ($this->password !== '1234pass') {
-            return new NotAuthorized();
-        }
-
-        return new Welcome();
+        return new NotAuthorized();
     }
 }
